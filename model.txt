@@ -11,3 +11,12 @@ tokenizer.push_to_hub("your-username/finetuned-codet5")
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 model = AutoModelForSeq2SeqLM.from_pretrained("your-username/finetuned-codet5")
 tokenizer = AutoTokenizer.from_pretrained("your-username/finetuned-codet5")
+
+# Export dataset into hugging face
+
+from datasets import Dataset
+import huggingface_hub
+hf_dataset = Dataset.from_pandas(augmented_xss)
+
+hf_dataset.push_to_hub("your-username/dataset_name")
+print("Dataset uploaded to Hugging Face!")
