@@ -1,1 +1,13 @@
-hey
+# For pushing a trained model to hugging face : 
+
+from huggingface_hub import notebook_login
+notebook_login()
+
+model.push_to_hub("your-username/finetuned-codet5")
+tokenizer.push_to_hub("your-username/finetuned-codet5")
+
+# Next time you can load it directly:
+
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+model = AutoModelForSeq2SeqLM.from_pretrained("your-username/finetuned-codet5")
+tokenizer = AutoTokenizer.from_pretrained("your-username/finetuned-codet5")
