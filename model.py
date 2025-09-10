@@ -20,3 +20,20 @@ hf_dataset = Dataset.from_pandas(augmented_xss)
 
 hf_dataset.push_to_hub("your-username/dataset_name")
 print("Dataset uploaded to Hugging Face!")
+
+
+# Import from hugging face
+
+
+from datasets import load_dataset
+import pandas as pd
+dataset = load_dataset("your-username/dataset_name", split="train")
+
+augmented_xss = dataset.to_pandas()
+
+# Optional: Display info
+print(f"Loaded dataset shape: {augmented_xss.shape}")
+print("Label distribution:")
+print(augmented_xss['Label'].value_counts())
+print("Preview:")
+print(augmented_xss.tail())
